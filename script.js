@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Initialize the map
-    var map = L.map('map-container').setView([8.0883, 77.5385], 10); // Centered on Kanyakumari
+    var map = L.map('map-container').setView([8.0844, 77.5495 ], 20); // Centered on Kanyakumari
 
     // Load OSM Tile Layer
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -49,6 +49,12 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
     }).addTo(map);
+
+    map.on('click', function (e) {
+        var lat = e.latlng.lat.toFixed(4);
+        var lng = e.latlng.lng.toFixed(4);
+        alert("Selected Coordinates: " + lat + ", " + lng);
+    });
 });
 
 // Function to switch tabs
